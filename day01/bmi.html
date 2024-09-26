@@ -4,23 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7946993760.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <label for="user-height">키(cm)</label>
-    <input
-      type="text"
-      placeholder="키를 입력하세요. ex) 182"
-      id="user-height"
-    />
-    <label for="user-weight">몸무게(kg)</label>
-    <input
-      type="text"
-      placeholder="몸무게를 입력하세요. ex) 92.5"
-      id="user-weight"
-    />
-    <button id="btn-result">결과 확인</button>
-    <div>
-      <input type="text" id="result" />
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-4 p-5 bg-white rounded-3">
+          <h1 class="text-center mb-5"><strong>BMI</strong> CALCULATOR</h1>
+          <div class="mb-3">
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="키를 입력하세요. ex) 180"
+              id="user-height"
+              oninput="validateInput()"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="몸무게를 입력하세요. ex) 85.5"
+              id="user-weight"
+              oninput="validateInput()"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="result"
+              id="result"
+            />
+          </div>
+          <div class="row g-2">
+            <div class="col">
+              <button class="btn btn-lg w-100 btn-primary" id="btn-result">
+                RESULT
+              </button>
+            </div>
+            <div class="col">
+              <button
+                class="btn btn-secondary btn-lg w-100 btn-primary"
+                id="btn-reset"
+              >
+                RESET
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="bmi05.js"></script>
   </body>

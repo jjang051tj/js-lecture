@@ -24,3 +24,14 @@ btnResult.addEventListener("click", function () {
 //   alert(msg);
 // }
 // aa("까꿍");
+
+function validateInput() {
+  const inputField = document.querySelector("#user-height");
+  const inputField02 = document.querySelector("#user-weight");
+  const value = inputField.value;
+  const value02 = inputField02.value;
+
+  // 숫자가 아닌 문자가 포함되면 제거
+  inputField.value = value.replace(/[^0-9]/g, "");
+  inputField02.value = value02.replace(/[^0-9]/g, "");
+}
