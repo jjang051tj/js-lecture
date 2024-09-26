@@ -10,6 +10,8 @@ let inputWeight = document.querySelector("#user-weight");
 console.log(inputWeight.value);
 
 let btnResult = document.querySelector("#btn-result");
+let btnReset = document.querySelector("#btn-reset");
+
 let result = document.querySelector("#result");
 
 btnResult.addEventListener("click", function () {
@@ -20,10 +22,11 @@ btnResult.addEventListener("click", function () {
   result.value = bmi;
 });
 
-// function aa(msg) {
-//   alert(msg);
-// }
-// aa("까꿍");
+btnReset.addEventListener("click", function () {
+  inputHeight.value = "";
+  inputWeight.value = "";
+  result.value = "";
+});
 
 function validateInput() {
   const inputField = document.querySelector("#user-height");
