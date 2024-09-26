@@ -10,14 +10,14 @@ let inputWeight = document.querySelector("#user-weight");
 console.log(inputWeight.value);
 
 let btnResult = document.querySelector("#btn-result");
-let btnResult02 = document.querySelector("#btn-result02");
+let result = document.querySelector("#result");
 
 btnResult.addEventListener("click", function () {
   //alert(inputWeight.value);
   //alert(inputHeight.value);
   let bmi =
     inputWeight.value / ((inputHeight.value / 100) * (inputHeight.value / 100));
-  document.write(bmi);
+  result.value = bmi;
 });
 
 // function aa(msg) {
