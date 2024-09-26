@@ -6,6 +6,8 @@ let myWeight02 = 95;
 let myHeight02 = 182;
 let result02 = myWeight02 / ((myHeight02 / 100) * (myHeight02 / 100));
 
-document.write(result01);
-document.write("<br>");
-document.write(result02);
+console.log(result01);
+
+// document.write(result01);
+// document.write("<br>");
+// document.write(result02);
