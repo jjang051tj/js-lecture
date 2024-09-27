@@ -1,0 +1,381 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Noto Sans KR", "돋움", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+button {
+  font-family: inherit;
+}
+
+.checkbox-wrapper-26 * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper-26 label {
+  --size: 50px;
+  --shadow: calc(var(--size) * 0.07) calc(var(--size) * 0.1);
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  background-color: #f72414;
+  border-radius: 50%;
+  box-shadow: 0 var(--shadow) #ffbeb8;
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color,
+    0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.checkbox-wrapper-26 label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: calc(var(--size) * 0.7);
+  height: calc(var(--size) * 0.7);
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 var(--shadow) #ffbeb8;
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+.checkbox-wrapper-26 label:hover:before {
+  width: calc(var(--size) * 0.55);
+  height: calc(var(--size) * 0.55);
+  box-shadow: inset 0 var(--shadow) #ff9d96;
+}
+
+.checkbox-wrapper-26 label:active {
+  transform: scale(0.9);
+}
+
+.checkbox-wrapper-26 .tick_mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: calc(var(--size) * -0.05);
+  width: calc(var(--size) * 0.6);
+  height: calc(var(--size) * 0.6);
+  margin: 0 auto;
+  margin-left: calc(var(--size) * 0.14);
+  transform: rotateZ(-40deg);
+}
+
+.checkbox-wrapper-26 .tick_mark:before,
+.checkbox-wrapper-26 .tick_mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.checkbox-wrapper-26 .tick_mark:before {
+  left: 0;
+  bottom: 0;
+  width: calc(var(--size) * 0.1);
+  height: calc(var(--size) * 0.3);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(calc(var(--size) * -0.68));
+}
+
+.checkbox-wrapper-26 .tick_mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--size) * 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(calc(var(--size) * 0.78));
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label {
+  background-color: #07d410;
+  box-shadow: 0 var(--shadow) #92ff97;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label:before {
+  width: 0;
+  height: 0;
+}
+
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:before,
+.checkbox-wrapper-26 input[type="checkbox"]:checked + label .tick_mark:after {
+  transform: translate(0);
+  opacity: 1;
+}
+
+.checkbox-wrapper-19 {
+  box-sizing: border-box;
+  --background-color: #fff;
+  --checkbox-height: 25px;
+}
+@keyframes dothabottomcheck-19 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: calc(var(--checkbox-height) / 2);
+  }
+}
+@keyframes dothatopcheck-19 {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: calc(var(--checkbox-height) * 1.2);
+  }
+}
+.checkbox-wrapper-19 input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper-19 .check-box {
+  height: var(--checkbox-height);
+  width: var(--checkbox-height);
+  background-color: transparent;
+  border: calc(var(--checkbox-height) * 0.1) solid #000;
+  border-radius: 5px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: border-color ease 0.2s;
+  cursor: pointer;
+}
+
+.checkbox-wrapper-19 .check-box::before,
+.checkbox-wrapper-19 .check-box::after {
+  box-sizing: border-box;
+  position: absolute;
+  height: 0;
+  width: calc(var(--checkbox-height) * 0.2);
+  background-color: #34b93d;
+  display: inline-block;
+  transform-origin: left top;
+  border-radius: 5px;
+  content: " ";
+  transition: opacity ease 0.5;
+}
+
+.checkbox-wrapper-19 .check-box::before {
+  top: calc(var(--checkbox-height) * 0.72);
+  left: calc(var(--checkbox-height) * 0.41);
+  box-shadow: 0 0 0 calc(var(--checkbox-height) * 0.05) var(--background-color);
+  transform: rotate(-135deg);
+}
+
+.checkbox-wrapper-19 .check-box::after {
+  top: calc(var(--checkbox-height) * 0.37);
+  left: calc(var(--checkbox-height) * 0.05);
+  transform: rotate(-45deg);
+}
+
+.checkbox-wrapper-19 input[type="checkbox"]:checked + .check-box,
+.checkbox-wrapper-19 .check-box.checked {
+  border-color: #34b93d;
+}
+
+.checkbox-wrapper-19 input[type="checkbox"]:checked + .check-box::after,
+.checkbox-wrapper-19 .check-box.checked::after {
+  height: calc(var(--checkbox-height) / 2);
+  animation: dothabottomcheck-19 0.2s ease 0s forwards;
+}
+
+.checkbox-wrapper-19 input[type="checkbox"]:checked + .check-box::before,
+.checkbox-wrapper-19 .check-box.checked::before {
+  height: calc(var(--checkbox-height) * 1.2);
+  animation: dothatopcheck-19 0.4s ease 0s forwards;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+}
+
+.login {
+  width: 340px;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 30px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+.login h2 {
+  text-align: center;
+}
+.login input {
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 15px;
+  border-radius: 3px;
+}
+.login input::-moz-placeholder {
+  color: #999999;
+  text-transform: lowercase;
+  font-size: 14px;
+  font-weight: 100;
+  height: 150px;
+  text-shadow: 1px 1px 0 #f2f2f2, 2px 2px 0 #f2f2f2, 3px 3px 0 #f2f2f2,
+    4px 4px 0 #f2f2f2, 5px 5px 0 #f2f2f2, 6px 6px 0 #f2f2f2, 7px 7px 0 #f2f2f2,
+    8px 8px 0 #f2f2f2, 9px 9px 0 #f2f2f2, 10px 10px 0 #f2f2f2,
+    11px 11px 0 #f2f2f2, 12px 12px 0 #f2f2f2, 13px 13px 0 #f2f2f2,
+    14px 14px 0 #f2f2f2, 15px 15px 0 #f2f2f2, 16px 16px 0 #f2f2f2,
+    17px 17px 0 #f2f2f2, 18px 18px 0 #f2f2f2, 19px 19px 0 #f2f2f2,
+    20px 20px 0 #f2f2f2, 21px 21px 0 #f2f2f2, 22px 22px 0 #f2f2f2,
+    23px 23px 0 #f2f2f2, 24px 24px 0 #f2f2f2, 25px 25px 0 #f2f2f2,
+    26px 26px 0 #f2f2f2, 27px 27px 0 #f2f2f2, 28px 28px 0 #f2f2f2,
+    29px 29px 0 #f2f2f2, 30px 30px 0 #f2f2f2, 31px 31px 0 #f2f2f2,
+    32px 32px 0 #f2f2f2, 33px 33px 0 #f2f2f2, 34px 34px 0 #f2f2f2,
+    35px 35px 0 #f2f2f2, 36px 36px 0 #f2f2f2, 37px 37px 0 #f2f2f2,
+    38px 38px 0 #f2f2f2, 39px 39px 0 #f2f2f2, 40px 40px 0 #f2f2f2,
+    41px 41px 0 #f2f2f2, 42px 42px 0 #f2f2f2, 43px 43px 0 #f2f2f2,
+    44px 44px 0 #f2f2f2, 45px 45px 0 #f2f2f2, 46px 46px 0 #f2f2f2,
+    47px 47px 0 #f2f2f2, 48px 48px 0 #f2f2f2, 49px 49px 0 #f2f2f2,
+    50px 50px 0 #f2f2f2, 51px 51px 0 #f2f2f2, 52px 52px 0 #f2f2f2,
+    53px 53px 0 #f2f2f2, 54px 54px 0 #f2f2f2, 55px 55px 0 #f2f2f2,
+    56px 56px 0 #f2f2f2, 57px 57px 0 #f2f2f2, 58px 58px 0 #f2f2f2,
+    59px 59px 0 #f2f2f2, 60px 60px 0 #f2f2f2, 61px 61px 0 #f2f2f2,
+    62px 62px 0 #f2f2f2, 63px 63px 0 #f2f2f2, 64px 64px 0 #f2f2f2,
+    65px 65px 0 #f2f2f2, 66px 66px 0 #f2f2f2, 67px 67px 0 #f2f2f2,
+    68px 68px 0 #f2f2f2, 69px 69px 0 #f2f2f2, 70px 70px 0 #f2f2f2,
+    71px 71px 0 #f2f2f2, 72px 72px 0 #f2f2f2, 73px 73px 0 #f2f2f2,
+    74px 74px 0 #f2f2f2, 75px 75px 0 #f2f2f2, 76px 76px 0 #f2f2f2,
+    77px 77px 0 #f2f2f2, 78px 78px 0 #f2f2f2, 79px 79px 0 #f2f2f2,
+    80px 80px 0 #f2f2f2, 81px 81px 0 #f2f2f2, 82px 82px 0 #f2f2f2,
+    83px 83px 0 #f2f2f2, 84px 84px 0 #f2f2f2, 85px 85px 0 #f2f2f2,
+    86px 86px 0 #f2f2f2, 87px 87px 0 #f2f2f2, 88px 88px 0 #f2f2f2,
+    89px 89px 0 #f2f2f2, 90px 90px 0 #f2f2f2, 91px 91px 0 #f2f2f2,
+    92px 92px 0 #f2f2f2, 93px 93px 0 #f2f2f2, 94px 94px 0 #f2f2f2,
+    95px 95px 0 #f2f2f2, 96px 96px 0 #f2f2f2, 97px 97px 0 #f2f2f2,
+    98px 98px 0 #f2f2f2, 99px 99px 0 #f2f2f2, 100px 100px 0 #f2f2f2;
+}
+.login input::placeholder {
+  color: #999999;
+  text-transform: lowercase;
+  font-size: 14px;
+  font-weight: 100;
+  height: 150px;
+  text-shadow: 1px 1px 0 #f2f2f2, 2px 2px 0 #f2f2f2, 3px 3px 0 #f2f2f2,
+    4px 4px 0 #f2f2f2, 5px 5px 0 #f2f2f2, 6px 6px 0 #f2f2f2, 7px 7px 0 #f2f2f2,
+    8px 8px 0 #f2f2f2, 9px 9px 0 #f2f2f2, 10px 10px 0 #f2f2f2,
+    11px 11px 0 #f2f2f2, 12px 12px 0 #f2f2f2, 13px 13px 0 #f2f2f2,
+    14px 14px 0 #f2f2f2, 15px 15px 0 #f2f2f2, 16px 16px 0 #f2f2f2,
+    17px 17px 0 #f2f2f2, 18px 18px 0 #f2f2f2, 19px 19px 0 #f2f2f2,
+    20px 20px 0 #f2f2f2, 21px 21px 0 #f2f2f2, 22px 22px 0 #f2f2f2,
+    23px 23px 0 #f2f2f2, 24px 24px 0 #f2f2f2, 25px 25px 0 #f2f2f2,
+    26px 26px 0 #f2f2f2, 27px 27px 0 #f2f2f2, 28px 28px 0 #f2f2f2,
+    29px 29px 0 #f2f2f2, 30px 30px 0 #f2f2f2, 31px 31px 0 #f2f2f2,
+    32px 32px 0 #f2f2f2, 33px 33px 0 #f2f2f2, 34px 34px 0 #f2f2f2,
+    35px 35px 0 #f2f2f2, 36px 36px 0 #f2f2f2, 37px 37px 0 #f2f2f2,
+    38px 38px 0 #f2f2f2, 39px 39px 0 #f2f2f2, 40px 40px 0 #f2f2f2,
+    41px 41px 0 #f2f2f2, 42px 42px 0 #f2f2f2, 43px 43px 0 #f2f2f2,
+    44px 44px 0 #f2f2f2, 45px 45px 0 #f2f2f2, 46px 46px 0 #f2f2f2,
+    47px 47px 0 #f2f2f2, 48px 48px 0 #f2f2f2, 49px 49px 0 #f2f2f2,
+    50px 50px 0 #f2f2f2, 51px 51px 0 #f2f2f2, 52px 52px 0 #f2f2f2,
+    53px 53px 0 #f2f2f2, 54px 54px 0 #f2f2f2, 55px 55px 0 #f2f2f2,
+    56px 56px 0 #f2f2f2, 57px 57px 0 #f2f2f2, 58px 58px 0 #f2f2f2,
+    59px 59px 0 #f2f2f2, 60px 60px 0 #f2f2f2, 61px 61px 0 #f2f2f2,
+    62px 62px 0 #f2f2f2, 63px 63px 0 #f2f2f2, 64px 64px 0 #f2f2f2,
+    65px 65px 0 #f2f2f2, 66px 66px 0 #f2f2f2, 67px 67px 0 #f2f2f2,
+    68px 68px 0 #f2f2f2, 69px 69px 0 #f2f2f2, 70px 70px 0 #f2f2f2,
+    71px 71px 0 #f2f2f2, 72px 72px 0 #f2f2f2, 73px 73px 0 #f2f2f2,
+    74px 74px 0 #f2f2f2, 75px 75px 0 #f2f2f2, 76px 76px 0 #f2f2f2,
+    77px 77px 0 #f2f2f2, 78px 78px 0 #f2f2f2, 79px 79px 0 #f2f2f2,
+    80px 80px 0 #f2f2f2, 81px 81px 0 #f2f2f2, 82px 82px 0 #f2f2f2,
+    83px 83px 0 #f2f2f2, 84px 84px 0 #f2f2f2, 85px 85px 0 #f2f2f2,
+    86px 86px 0 #f2f2f2, 87px 87px 0 #f2f2f2, 88px 88px 0 #f2f2f2,
+    89px 89px 0 #f2f2f2, 90px 90px 0 #f2f2f2, 91px 91px 0 #f2f2f2,
+    92px 92px 0 #f2f2f2, 93px 93px 0 #f2f2f2, 94px 94px 0 #f2f2f2,
+    95px 95px 0 #f2f2f2, 96px 96px 0 #f2f2f2, 97px 97px 0 #f2f2f2,
+    98px 98px 0 #f2f2f2, 99px 99px 0 #f2f2f2, 100px 100px 0 #f2f2f2;
+}
+.login a {
+  text-align: center;
+  font-size: 13px;
+  margin: 20px 0;
+}
+.login button {
+  border: none;
+  border-radius: 50px;
+  background-color: #0dcdfd;
+  color: #fff;
+  padding: 15px;
+  font-weight: 500;
+  font-size: 15px;
+  overflow: hidden;
+  text-shadow: 1px 1px 0 #02abd5, 2px 2px 0 #02abd5, 3px 3px 0 #02abd5,
+    4px 4px 0 #02abd5, 5px 5px 0 #02abd5, 6px 6px 0 #02abd5, 7px 7px 0 #02abd5,
+    8px 8px 0 #02abd5, 9px 9px 0 #02abd5, 10px 10px 0 #02abd5,
+    11px 11px 0 #02abd5, 12px 12px 0 #02abd5, 13px 13px 0 #02abd5,
+    14px 14px 0 #02abd5, 15px 15px 0 #02abd5, 16px 16px 0 #02abd5,
+    17px 17px 0 #02abd5, 18px 18px 0 #02abd5, 19px 19px 0 #02abd5,
+    20px 20px 0 #02abd5, 21px 21px 0 #02abd5, 22px 22px 0 #02abd5,
+    23px 23px 0 #02abd5, 24px 24px 0 #02abd5, 25px 25px 0 #02abd5,
+    26px 26px 0 #02abd5, 27px 27px 0 #02abd5, 28px 28px 0 #02abd5,
+    29px 29px 0 #02abd5, 30px 30px 0 #02abd5, 31px 31px 0 #02abd5,
+    32px 32px 0 #02abd5, 33px 33px 0 #02abd5, 34px 34px 0 #02abd5,
+    35px 35px 0 #02abd5, 36px 36px 0 #02abd5, 37px 37px 0 #02abd5,
+    38px 38px 0 #02abd5, 39px 39px 0 #02abd5, 40px 40px 0 #02abd5;
+}
+.login button:active {
+  background-color: #0182a3;
+  text-shadow: 1px 1px 0 #016e89, 2px 2px 0 #016e89, 3px 3px 0 #016e89,
+    4px 4px 0 #016e89, 5px 5px 0 #016e89, 6px 6px 0 #016e89, 7px 7px 0 #016e89,
+    8px 8px 0 #016e89, 9px 9px 0 #016e89, 10px 10px 0 #016e89,
+    11px 11px 0 #016e89, 12px 12px 0 #016e89, 13px 13px 0 #016e89,
+    14px 14px 0 #016e89, 15px 15px 0 #016e89, 16px 16px 0 #016e89,
+    17px 17px 0 #016e89, 18px 18px 0 #016e89, 19px 19px 0 #016e89,
+    20px 20px 0 #016e89, 21px 21px 0 #016e89, 22px 22px 0 #016e89,
+    23px 23px 0 #016e89, 24px 24px 0 #016e89, 25px 25px 0 #016e89,
+    26px 26px 0 #016e89, 27px 27px 0 #016e89, 28px 28px 0 #016e89,
+    29px 29px 0 #016e89, 30px 30px 0 #016e89, 31px 31px 0 #016e89,
+    32px 32px 0 #016e89, 33px 33px 0 #016e89, 34px 34px 0 #016e89,
+    35px 35px 0 #016e89, 36px 36px 0 #016e89, 37px 37px 0 #016e89,
+    38px 38px 0 #016e89, 39px 39px 0 #016e89, 40px 40px 0 #016e89;
+}

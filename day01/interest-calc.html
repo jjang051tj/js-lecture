@@ -25,14 +25,14 @@
   <body>
     <div class="container mt-5">
       <div class="row justify-content-center">
-        <div class="col-6 p-5 bg-white rounded-3">
-          <h1 class="text-center mb-5"><strong>BMI</strong> CALCULATOR</h1>
+        <div class="col-4 p-5 bg-white rounded-3">
+          <h1 class="text-center mb-5"><strong>이자</strong> 계산기</h1>
           <div class="mb-3">
             <input
               class="form-control form-control-lg"
               type="text"
-              placeholder="키를 입력하세요. ex) 180"
-              id="user-height"
+              placeholder="예치할 금액을 쓰세요"
+              id="money"
               oninput="validateInput()"
             />
           </div>
@@ -40,8 +40,17 @@
             <input
               class="form-control form-control-lg"
               type="text"
-              placeholder="몸무게를 입력하세요. ex) 85.5"
-              id="user-weight"
+              placeholder="예치기간을 쓰세요 ex)12개월"
+              id="duration"
+              oninput="validateInput()"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="이자율을 쓰세요 ex) 3%"
+              id="rate"
               oninput="validateInput()"
             />
           </div>
@@ -51,14 +60,6 @@
               type="text"
               placeholder="result"
               id="result"
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              class="form-control form-control-lg"
-              type="text"
-              placeholder="result"
-              id="result02"
             />
           </div>
           <div class="row g-2">
@@ -79,6 +80,6 @@
         </div>
       </div>
     </div>
-    <script src="bmi05.js"></script>
+    <script src="interest.js"></script>
   </body>
 </html>
