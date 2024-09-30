@@ -6,7 +6,7 @@ const inputDay = document.querySelector("#day");
 const inputTime = document.querySelector("#time");
 const inputSeason = document.querySelector("#season");
 //prettier-ignore
-const days = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+const days = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
 //prettier-ignore
 const monthList = 
 ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
@@ -22,9 +22,9 @@ function addApm(hour) {
   // 시간이 12보다 크면 PM
   // 작으면 AM
   if (hour > 12) {
-    hour = "PM" + addZero(hour - 12);
+    hour = "<span>PM</span>" + addZero(hour - 12);
   } else {
-    hour = "AM" + hour;
+    hour = "<span>AM</span>" + hour;
   }
   return hour;
 }
@@ -65,9 +65,11 @@ function checkTime() {
   //   date = "0" + date;
   // }
 
-  inputDate.textContent = `${year}/${monthList[myDate.getMonth()]}/${date}`;
+  inputDate.textContent = `${year} / ${addZero(
+    myDate.getMonth() + 1
+  )} / ${date}`;
   inputDay.textContent = `${days[myDate.getDay()]}`;
-  inputTime.textContent = `${hour} : ${min} : ${sec}`;
+  inputTime.innerHTML = `${hour} : ${min} : ${sec}`;
   inputSeason.textContent = checkSeason(myDate.getMonth() + 1);
 }
 checkTime();

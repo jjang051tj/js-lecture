@@ -1,0 +1,46 @@
+@import "default";
+@import "mixin";
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+  background-size: cover;
+}
+
+.time-box {
+  width: 30vw;
+  aspect-ratio: 1/1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: darken(#333, 10);
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 20px darken(#333, 20);
+  overflow: hidden;
+  color: #fff;
+  line-height: 1.2;
+  #date {
+    font-size: 2em;
+    font-weight: 100;
+    //@include longShadow(500, darken(#111, 10));
+  }
+  #day {
+    font-size: 5em;
+    font-weight: 900;
+    @include longShadow(500, darken(#111, 30));
+  }
+  #time {
+    font-size: 1.7em;
+    span {
+      font-weight: 300;
+      margin-right: 10px;
+    }
+  }
+  #season {
+    display: none;
+  }
+}

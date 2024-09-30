@@ -16,7 +16,7 @@ function countDown(dday) {
   const diffMin = addZero(parseInt(diff / 1000 / 60) % 60);
   const diffSec = addZero(parseInt(diff / 1000) % 60);
   //console.log(parseInt(diff / 1000));
-  remainingDay.innerHTML = `<strong>${diffDate + 1}</strong><span>일</span>`;
+  remainingDay.innerHTML = `<strong>${diffDate}</strong><span>일</span>`;
   remainingTime.textContent = `${diffHour} : ${diffMin} : ${diffSec}`;
   //85일 12시간 24분 30초
 }
@@ -25,7 +25,6 @@ let clearID = setInterval(countDown, 1000, "2024-12-25");
 const btns = document.querySelectorAll("#btns button");
 btns.forEach(function (el) {
   el.addEventListener("click", function () {
-    console.log(this.dataset.day);
     clearInterval(clearID);
     countDown(this.dataset.day);
     clearID = setInterval(countDown, 1000, this.dataset.day);
