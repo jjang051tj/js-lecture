@@ -10,22 +10,31 @@ const days = ["일요일","월요일","화요일","수요일","목요일","금�
 const monthList = 
 ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 // 달 0 ~ 11  12 ;23 ;30
+
 function addZero(num) {
   if (num < 10) {
-    num = "0" + num;
+    num = "0" + num; //09
   }
   return num;
 }
-//let value = addZero(12);
-//console.log(value);
+function addApm(hour) {
+  // 시간이 12보다 크면 PM
+  // 작으면 AM
+  if (hour > 12) {
+    hour = "PM" + addZero(hour - 12);
+  } else {
+    hour = "AM" + hour;
+  }
+  return hour;
+}
 function checkTime() {
   const myDate = new Date();
-  let date = addZero(myDate.getDate());
+  const date = addZero(myDate.getDate());
   const year = myDate.getFullYear();
 
-  let hour = addZero(myDate.getHours()); //0~23
-  let min = addZero(myDate.getMinutes()); //0~59
-  let sec = addZero(myDate.getSeconds()); //0~59
+  const hour = addApm(myDate.getHours()); //0~23 13
+  const min = addZero(myDate.getMinutes()); //0~59
+  const sec = addZero(myDate.getSeconds()); //0~59
   // if (sec < 10) {
   //   sec = "0" + sec;
   // }
