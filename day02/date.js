@@ -4,6 +4,7 @@
 const inputDate = document.querySelector("#date");
 const inputDay = document.querySelector("#day");
 const inputTime = document.querySelector("#time");
+const inputSeason = document.querySelector("#season");
 //prettier-ignore
 const days = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
 //prettier-ignore
@@ -27,10 +28,26 @@ function addApm(hour) {
   }
   return hour;
 }
+function checkSeason(month) {
+  if (month >= 3 && month < 6) {
+    //3,4,5
+    return "spring";
+  } else if (month >= 6 && month < 9) {
+    //6,7,8
+    return "summer";
+  } else if (month >= 9 && month < 12) {
+    //9,10,11
+    return "fall";
+  } else {
+    return "winter";
+  }
+}
+
 function checkTime() {
   const myDate = new Date();
   const date = addZero(myDate.getDate());
   const year = myDate.getFullYear();
+  //const month = myDate.getMonth();
 
   const hour = addApm(myDate.getHours()); //0~23 13
   const min = addZero(myDate.getMinutes()); //0~59
@@ -51,6 +68,8 @@ function checkTime() {
   inputDate.textContent = `${year}/${monthList[myDate.getMonth()]}/${date}`;
   inputDay.textContent = `${days[myDate.getDay()]}`;
   inputTime.textContent = `${hour} : ${min} : ${sec}`;
+  inputSeason.textContent = checkSeason(myDate.getMonth() + 1);
 }
 checkTime();
 setInterval(checkTime, 1000);
+//봄(4~6)/여름(6~9)/ 가을(10~11)/ 겨울(12~3) 출력해보기
