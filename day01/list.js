@@ -57,7 +57,7 @@ const productList = [
 ];
 
 for (let i = 0; i < 10; i++) {
-  list.innerHTML += `<li><div class="card" style="width: 18rem;">
+  list.innerHTML += `<li class="flex-grow-1"><div class="card" style="width: 18rem;">
   <img src="images/${productList[i].img}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${productList[i].title}</h5>
