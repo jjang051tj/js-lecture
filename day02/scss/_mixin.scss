@@ -1,0 +1,13 @@
+@mixin longShadow($end, $shadowColor) {
+  $shadow: "";
+  @for $i from 1 through $end - 1 {
+    $shadow: $shadow + $i + "px " + $i + "px 0 " + $shadowColor + ",";
+  }
+  $shadow: $shadow + $end + "px " + $end + "px 0 " + $shadowColor + ";";
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}
+@mixin pseudoIcon($icon) {
+  font-family: "Material Symbols Outlined";
+  content: $icon;
+}

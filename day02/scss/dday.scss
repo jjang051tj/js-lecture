@@ -1,0 +1,16 @@
+@import "default";
+@import "mixin";
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #666;
+  background-size: cover;
+}
+#remaining-time {
+  color: #fff;
+  font-size: 5vw;
+  font-weight: 700;
+  @include longShadow(500, darken(#666, 20));
+}
