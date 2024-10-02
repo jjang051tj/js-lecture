@@ -1,0 +1,29 @@
+@import "default";
+@import "mixin";
+body {
+  height: 100vh;
+  //background-color: #666;
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  font-size: 24px;
+  padding: 20px 0;
+}
+#lotto {
+  width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  li {
+    flex-basis: 16%; //넓이가 %일때 aspect-ratio:1/1
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
