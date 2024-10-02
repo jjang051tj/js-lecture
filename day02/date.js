@@ -1,5 +1,3 @@
-//날짜 관련된
-
 //객체를 호출
 const inputDate = document.querySelector("#date");
 const inputDay = document.querySelector("#day");
@@ -75,3 +73,9 @@ function checkTime() {
 checkTime();
 setInterval(checkTime, 1000);
 //봄(4~6)/여름(6~9)/ 가을(10~11)/ 겨울(12~3) 출력해보기
+console.log(parseInt(Math.random() * 46 + 1));
+console.log(parseInt(Math.random() * 46 + 1));
+console.log(parseInt(Math.random() * 46 + 1));
+console.log(parseInt(Math.random() * 46 + 1));
+console.log(parseInt(Math.random() * 46 + 1));
+console.log(parseInt(Math.random() * 46 + 1));
