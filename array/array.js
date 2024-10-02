@@ -1,6 +1,6 @@
 //모든 객체는 참조한다.
-//let array01 = new Array(1, 2, 3);
-//let copyArrary = array01; //얕은 복사  shallow copy
+let array01 = new Array(1, 2, 3);
+let copyArrary = array01; //얕은 복사  shallow copy
 //let copyArrary = [...array01]; //...은 spread연산자이다.
 //let copyArrary = array01.concat(); //배열 합칠때 con
 // console.log(array01);
