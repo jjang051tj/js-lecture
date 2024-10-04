@@ -26,6 +26,11 @@ for (let k = 0; k < 5; k++) {
     return a > b ? 1 : -1; //삼항연산자
   });
   const lottoList = document.querySelector("#lotto"); //ul
+  //1~10  COLORS[0]
+  //11~20  COLORS[1]
+  //21~30  COLORS[2]
+  //31~40  COLORS[3]
+  //41~  COLORS[4]
   for (let i = 0; i < 6; i++) {
     if (lotto[i] >= 1 && lotto[i] <= 10) {
       lottoList.innerHTML += `<li style="background-color:orange">${lotto[i]}</li>`;
@@ -41,3 +46,4 @@ for (let k = 0; k < 5; k++) {
   }
   console.log(lotto);
 }
+//ajax ()
