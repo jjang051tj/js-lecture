@@ -67,7 +67,6 @@ header h1 {
   width: 1200px;
   margin: 100px auto;
   display: flex;
-  flex-wrap: wrap;
 }
 .list li {
   box-sizing: border-box;
@@ -86,8 +85,6 @@ header h1 {
 .list li .point {
   color: #f00;
   font-size: 18px;
-  font-weight: 700;
-  margin-top: 20px;
 }
 .list li a svg {
   width: 20px;

@@ -35,6 +35,7 @@ header {
   width: 1200px;
   margin: 100px auto;
   display: flex;
+  flex-wrap: wrap;
   //gap: 10px;
   li {
     box-sizing: border-box;
@@ -52,6 +53,8 @@ header {
     .point {
       color: #f00;
       font-size: 18px;
+      font-weight: 700;
+      margin-top: 20px;
     }
     a svg {
       width: 20px;
