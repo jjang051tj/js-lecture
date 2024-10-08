@@ -1,3 +1,9 @@
+//http method
+//create  (서버에 값을 입력할때           post)
+//read    (서버로부터 값을 받기만 할때     get)
+//update  (서버에 있는 값을 수정할때       put/patch)
+//delete  (서버에 있는 데이터를 삭제할때   delete )
+//promise
 fetch("../data/data.json") //서버 주소가 들어가면 됨(db가 반영된 json을 리턴 받을 수)
   .then((response) => response.json())
   .then((json) => {
