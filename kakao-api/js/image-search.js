@@ -4,15 +4,32 @@
 const REST_API_KEY = "f1f09ca75091534fe5396fd9eb6af0b1";
 const btnSearch = document.querySelector("#btn-search");
 const inputSearchWord = document.querySelector("#search-word");
+
+//node list는 순서가 있음... 마치 배열처럼
+//그런데 진짜 배열은 아니다...  유사배열
+function showH2() {
+  const h2 = document.querySelectorAll("h2");
+  h2.forEach(function (element, index) {
+    //console.log(element);
+    //console.log(index);
+    element.style.display = "block";
+  });
+}
+
 inputSearchWord.addEventListener("keyup", function (e) {
   console.log(e);
   if (e.keyCode === 13) {
-    kakaoSearch(inputSearchWord.value);
+    showContents();
   }
 });
 btnSearch.addEventListener("click", function () {
-  kakaoSearch(inputSearchWord.value);
+  showContents();
 });
+function showContents() {
+  showH2();
+  kakaoSearch(inputSearchWord.value);
+  kakaoSearchVclip(inputSearchWord.value);
+}
 function kakaoSearch(searchWord) {
   //prettier-ignore
   fetch(`https://dapi.kakao.com/v2/search/image?query=${searchWord}&size=72`,{
@@ -26,7 +43,8 @@ function kakaoSearch(searchWord) {
   })
   .then(function(json) {
     //console.log(json);
-    const list = document.querySelector("#list");
+   
+    const list = document.querySelector("#list01");
     list.innerHTML="";
     json.documents.forEach(function(element,index) {
       list.innerHTML+=`<li><a href="${element.image_url}" 
@@ -47,7 +65,8 @@ function kakaoSearchVclip(searchWord) {
   })
   .then(function(json) {
     //console.log(json);
-    const list = document.querySelector("#list");
+    
+    const list = document.querySelector("#list02");
     list.innerHTML="";
     json.documents.forEach(function(element,index) {
       list.innerHTML+=`<li><a href="${element.url}" 

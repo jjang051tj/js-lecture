@@ -266,22 +266,31 @@ header h1 {
   font-size: 18px;
 }
 
-#list {
+h2 {
+  text-align: center;
+  margin: 50px;
+  display: none;
+}
+
+#list01,
+#list02 {
   display: flex;
   align-items: center;
-  width: 1000px;
+  width: 1600px;
   margin: 0 auto;
   flex-wrap: wrap;
 }
-#list li {
+#list01 li,
+#list02 li {
   flex-basis: 80px;
-  flex-grow: 1;
   position: relative;
 }
-#list li:hover::before {
+#list01 li:hover::before,
+#list02 li:hover::before {
   border-width: 4px;
 }
-#list li:before {
+#list01 li:before,
+#list02 li:before {
   content: "";
   display: block;
   position: absolute;
@@ -294,7 +303,8 @@ header h1 {
   pointer-events: none;
   transition: all 0.2s ease;
 }
-#list li img {
+#list01 li img,
+#list02 li img {
   vertical-align: top;
   width: 100%;
 }

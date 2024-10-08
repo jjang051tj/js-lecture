@@ -40,16 +40,22 @@ header {
     font-size: 18px;
   }
 }
-#list {
+h2 {
+  text-align: center;
+  margin: 50px;
+  display: none;
+}
+#list01,
+#list02 {
   display: flex;
   //justify-content: center;
   align-items: center;
-  width: 1000px;
+  width: 1600px;
   margin: 0 auto;
   flex-wrap: wrap;
   li {
     flex-basis: 80px;
-    flex-grow: 1;
+    //flex-grow: 1;
     position: relative;
     &:hover::before {
       border-width: 4px;
