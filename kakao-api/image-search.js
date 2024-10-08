@@ -4,6 +4,12 @@
 const REST_API_KEY = "f1f09ca75091534fe5396fd9eb6af0b1";
 const btnSearch = document.querySelector("#btn-search");
 const inputSearchWord = document.querySelector("#search-word");
+inputSearchWord.addEventListener("keyup", function (e) {
+  console.log(e);
+  if (e.keyCode === 13) {
+    kakaoSearch(inputSearchWord.value);
+  }
+});
 btnSearch.addEventListener("click", function () {
   kakaoSearch(inputSearchWord.value);
 });
