@@ -308,3 +308,22 @@ h2 {
   vertical-align: top;
   width: 100%;
 }
+
+.searched-word {
+  width: 1600px;
+  margin: 50px auto;
+}
+.searched-word ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.searched-word ul li {
+  padding: 15px 25px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}

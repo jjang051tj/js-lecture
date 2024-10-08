@@ -4,6 +4,9 @@
 const REST_API_KEY = "f1f09ca75091534fe5396fd9eb6af0b1";
 const btnSearch = document.querySelector("#btn-search");
 const inputSearchWord = document.querySelector("#search-word");
+const searchedWordList = document.querySelector("#searched-word-list");
+
+const searchedWordArray = [];
 
 //node list는 순서가 있음... 마치 배열처럼
 //그런데 진짜 배열은 아니다...  유사배열
@@ -25,7 +28,28 @@ inputSearchWord.addEventListener("keyup", function (e) {
 btnSearch.addEventListener("click", function () {
   showContents();
 });
+// const arr = [1, 1, 1, 2, 2, 3, 4, 3, 3, 4, 5, 6];
+// const mySet = new Set(arr);
+// const uniqueArray = [...mySet];
+function addSearchWord(searchWord) {
+  if (!searchedWordArray.includes(searchWord)) {
+    searchedWordList.innerHTML = "";
+    searchedWordArray.push(searchWord); //전지현 , 송혜교
+    searchedWordArray.forEach(function (element, index) {
+      searchedWordList.innerHTML += `<li>${element}</li>`;
+    });
+    const searchedWordItem = document.querySelectorAll(
+      "#searched-word-list li"
+    );
+    searchedWordItem.forEach(function (element, index) {
+      element.addEventListener("click", function () {
+        //console.log("클릭했음");
+      });
+    });
+  }
+}
 function showContents() {
+  addSearchWord(inputSearchWord.value);
   showH2();
   kakaoSearch(inputSearchWord.value);
   kakaoSearchVclip(inputSearchWord.value);
@@ -35,7 +59,7 @@ function kakaoSearch(searchWord) {
   fetch(`https://dapi.kakao.com/v2/search/image?query=${searchWord}&size=72`,{
     headers:{
       Authorization:`KakaoAK ${REST_API_KEY}`
-    }
+    },
   })
   .then(function(response) {
     console.log(response); //Response
@@ -43,7 +67,6 @@ function kakaoSearch(searchWord) {
   })
   .then(function(json) {
     //console.log(json);
-   
     const list = document.querySelector("#list01");
     list.innerHTML="";
     json.documents.forEach(function(element,index) {
