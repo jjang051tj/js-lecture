@@ -15,7 +15,7 @@ btnSearch.addEventListener("click", function () {
 });
 function kakaoSearch(searchWord) {
   //prettier-ignore
-  fetch(`https://dapi.kakao.com/v2/search/image?query=${searchWord}`,{
+  fetch(`https://dapi.kakao.com/v2/search/image?query=${searchWord}&size=72`,{
   headers:{
     Authorization:`KakaoAK ${REST_API_KEY}`
   }
