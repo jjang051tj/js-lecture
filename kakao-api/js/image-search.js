@@ -44,6 +44,10 @@ function addSearchWord(searchWord) {
     searchedWordItem.forEach(function (element, index) {
       element.addEventListener("click", function () {
         //console.log("클릭했음");
+        //inputSearchWord.value = element.textContent;
+        inputSearchWord.value = searchedWordArray[index];
+        //db에 저장하던지...
+        showContents();
       });
     });
   }
