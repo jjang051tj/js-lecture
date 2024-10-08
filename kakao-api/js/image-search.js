@@ -16,23 +16,49 @@ btnSearch.addEventListener("click", function () {
 function kakaoSearch(searchWord) {
   //prettier-ignore
   fetch(`https://dapi.kakao.com/v2/search/image?query=${searchWord}&size=72`,{
-  headers:{
-    Authorization:`KakaoAK ${REST_API_KEY}`
-  }
-})
-.then(function(response) {
-  console.log(response); //Response
-  return response.json();
-})
-.then(function(json) {
-  //console.log(json);
-  const list = document.querySelector("#list");
-  list.innerHTML="";
-  json.documents.forEach(function(element,index) {
-    list.innerHTML+=`<li><img src="${element.thumbnail_url}"></li>`
-  });
-})
+    headers:{
+      Authorization:`KakaoAK ${REST_API_KEY}`
+    }
+  })
+  .then(function(response) {
+    console.log(response); //Response
+    return response.json();
+  })
+  .then(function(json) {
+    //console.log(json);
+    const list = document.querySelector("#list");
+    list.innerHTML="";
+    json.documents.forEach(function(element,index) {
+      list.innerHTML+=`<li><a href="${element.image_url}" 
+      data-fancybox="${searchWord}" data-caption="${element.display_sitename}"><img src="${element.thumbnail_url}"></a></li>`
+    });
+  })
 }
+function kakaoSearchVclip(searchWord) {
+  //prettier-ignore
+  fetch(`https://dapi.kakao.com/v2/search/vclip?query=${searchWord}&size=30`,{
+    headers:{
+      Authorization:`KakaoAK ${REST_API_KEY}`
+    }
+  })
+  .then(function(response) {
+    console.log(response); //Response
+    return response.json();
+  })
+  .then(function(json) {
+    //console.log(json);
+    const list = document.querySelector("#list");
+    list.innerHTML="";
+    json.documents.forEach(function(element,index) {
+      list.innerHTML+=`<li><a href="${element.url}" 
+      data-fancybox="${searchWord}" data-caption="${element.title}">
+      <img src="${element.thumbnail}"></a></li>`
+    });
+  })
+}
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
 
 // json
 // 자바(객체)  json 자바스크립트(객체)

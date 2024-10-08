@@ -291,6 +291,7 @@ header h1 {
   box-sizing: border-box;
   left: 0;
   top: 0;
+  pointer-events: none;
   transition: all 0.2s ease;
 }
 #list li img {
