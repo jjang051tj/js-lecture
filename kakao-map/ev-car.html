@@ -8,10 +8,112 @@
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bfbedb713be7ff815a9fdc893bdac8f8&libraries=services"
     ></script>
+    <style>
+      .wrap {
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        width: 288px;
+        height: 132px;
+        margin-left: -144px;
+        text-align: left;
+        overflow: hidden;
+        font-size: 12px;
+        font-family: "Malgun Gothic", dotum, "돋움", sans-serif;
+        line-height: 1.5;
+      }
+      .wrap * {
+        padding: 0;
+        margin: 0;
+      }
+      .wrap .info {
+        width: 286px;
+        height: 120px;
+        border-radius: 5px;
+        border-bottom: 2px solid #ccc;
+        border-right: 1px solid #ccc;
+        overflow: hidden;
+        background: #fff;
+      }
+      .wrap .info:nth-child(1) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+      }
+      .info .title {
+        padding: 5px 0 0 10px;
+        height: 30px;
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .info .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #888;
+        width: 17px;
+        height: 17px;
+        background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png");
+      }
+      .info .close:hover {
+        cursor: pointer;
+      }
+      .info .body {
+        position: relative;
+        overflow: hidden;
+      }
+      .info .desc {
+        position: relative;
+        margin: 13px 0 0 90px;
+        height: 75px;
+      }
+      .desc .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .desc .jibun {
+        font-size: 11px;
+        color: #888;
+        margin-top: -2px;
+      }
+      .info .img {
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        width: 73px;
+        height: 71px;
+        border: 1px solid #ddd;
+        color: #888;
+        overflow: hidden;
+      }
+      .info:after {
+        content: "";
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+        background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png");
+      }
+      .info .link {
+        color: #5085bb;
+      }
+    </style>
   </head>
   <body>
     <div id="map" style="width: 80vw; height: 80vh"></div>
     <script>
+      const content = "";
+      function closeOverlay() {
+        console.log("close");
+        overlay.setMap(null);
+      }
+      const overlay = new kakao.maps.CustomOverlay({
+        content: content,
+      });
       let page = 1;
       const perPage = 300;
       const serviceKey =
@@ -25,19 +127,51 @@
         })
         .then(function (json) {
           console.log(json.data);
-          const markers = [];
-          const stationList = [...json.data];
           const mapContainer = document.querySelector("#map"), // 지도를 표시할 div
             mapOption = {
-              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+              center: new kakao.maps.LatLng(37.5665, 126.978), // 지도의 중심좌표
               level: 10, // 지도의 확대 레벨
             };
-
           const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+          // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+
+          const markers = [];
+          const stationList = [...json.data];
+
           stationList.forEach(function (element, index, array) {
             const marker = new kakao.maps.Marker({
               position: new kakao.maps.LatLng(element.lat, element.longi),
               title: element.csName,
+            });
+            kakao.maps.event.addListener(marker, "click", function () {
+              const content = `<div class="wrap">
+              <div class="info">
+                <div class="title">
+                  ${element.csNm}
+                  <div
+                    class="close"
+                    onclick="closeOverlay()"
+                    title="닫기"
+                  ></div>
+                </div>
+                <div class="body">
+                  <div class="img">
+                    //완속이면 파란색으로 표시 급속이면 빨간색으로 표지
+                  </div>
+                  <div class="desc">
+                    <div class="ellipsis">${element.addr}</div>
+                    <div class="jibun ellipsis">${element.cpTp}</div>
+                    <div class="ellipsis">${element.cpStat}</div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+              //
+
+              overlay.setContent(content);
+              overlay.setMap(map);
+              overlay.setPosition(marker.getPosition()); // 클릭하고 있는 마커의 포지션(위도, 경도)
+              //setter
             });
             marker.setMap(map);
           });
