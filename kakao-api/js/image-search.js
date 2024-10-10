@@ -6,7 +6,36 @@ const btnSearch = document.querySelector("#btn-search");
 const inputSearchWord = document.querySelector("#search-word");
 const searchedWordList = document.querySelector("#searched-word-list");
 
-const searchedWordArray = [];
+const searchedWordArray = JSON.parse(localStorage.getItem("searchedWordArray"));
+
+function makeSearchedWordListItem() {
+  searchedWordList.innerHTML = "";
+  searchedWordArray.forEach(function (element, index) {
+    searchedWordList.innerHTML += `<li>${element}</li>`;
+  });
+  const searchedWordItem = document.querySelectorAll("#searched-word-list li");
+  searchedWordItem.forEach(function (element, index) {
+    element.addEventListener("click", function () {
+      //console.log("클릭했음");
+      //inputSearchWord.value = element.textContent;
+      inputSearchWord.value = searchedWordArray[index];
+      //db에 저장하던지...
+      showContents();
+    });
+  });
+}
+makeSearchedWordListItem();
+/*
+const myItem = {
+  name: "장성호",
+  age: 30,
+  weight: 90,
+};
+const fruits = ["apple", "banana"];
+localStorage.setItem("jang", JSON.stringify(fruits)); //localStroage에는 문자만 저장된다.
+const loadMyItem = JSON.parse(localStorage.getItem("jang")); // 50==>"50"  parseInt()
+console.log(loadMyItem[0]);
+*/
 
 //node list는 순서가 있음... 마치 배열처럼
 //그런데 진짜 배열은 아니다...  유사배열
@@ -33,23 +62,15 @@ btnSearch.addEventListener("click", function () {
 // const uniqueArray = [...mySet];
 function addSearchWord(searchWord) {
   if (!searchedWordArray.includes(searchWord)) {
-    searchedWordList.innerHTML = "";
     searchedWordArray.push(searchWord); //전지현 , 송혜교
     searchedWordArray.forEach(function (element, index) {
       searchedWordList.innerHTML += `<li>${element}</li>`;
     });
-    const searchedWordItem = document.querySelectorAll(
-      "#searched-word-list li"
+    localStorage.setItem(
+      "searchedWordArray",
+      JSON.stringify(searchedWordArray)
     );
-    searchedWordItem.forEach(function (element, index) {
-      element.addEventListener("click", function () {
-        //console.log("클릭했음");
-        //inputSearchWord.value = element.textContent;
-        inputSearchWord.value = searchedWordArray[index];
-        //db에 저장하던지...
-        showContents();
-      });
-    });
+    makeSearchedWordListItem();
   }
 }
 function showContents() {
