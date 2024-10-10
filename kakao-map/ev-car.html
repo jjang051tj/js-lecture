@@ -13,9 +13,9 @@
         position: absolute;
         left: 0;
         bottom: 40px;
-        width: 288px;
+        width: 320px;
         height: 132px;
-        margin-left: -144px;
+        margin-left: -160px;
         text-align: left;
         overflow: hidden;
         font-size: 12px;
@@ -27,7 +27,7 @@
         margin: 0;
       }
       .wrap .info {
-        width: 286px;
+        width: 320px;
         height: 120px;
         border-radius: 5px;
         border-bottom: 2px solid #ccc;
@@ -87,7 +87,20 @@
         border: 1px solid #ddd;
         color: #888;
         overflow: hidden;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+      .info .blue {
+        background-color: #0081c7;
+      }
+      .info .red {
+        background-color: #d50000;
+      }
+
       .info:after {
         content: "";
         position: absolute;
@@ -101,11 +114,48 @@
       .info .link {
         color: #5085bb;
       }
+      .cpStat {
+        color: #f00;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div id="map" style="width: 80vw; height: 80vh"></div>
     <script>
+      const chargeTps = [
+        {
+          color: "red",
+          title: "급속",
+        },
+        {
+          color: "blue",
+          title: "완속",
+        },
+      ];
+      const cpStats = [
+        "상태확인불가",
+        "충전가능",
+        "충전중",
+        "고장/점검",
+        "통신장애",
+      ];
+      cpStats[9] = "충전예약";
+
+      const cpTps = [
+        "",
+        "B타입(5핀)",
+        "C타입(5핀)",
+        "BC타입(5핀)",
+        "BC타입(7핀)",
+        "DC차데모",
+        "AC3상",
+        "DC콤보",
+        "DC차데모+DC콤보",
+        "DC차데모+AC3상",
+        "DC차데모+DC콤보+AC3상",
+      ];
+
       const content = "";
       function closeOverlay() {
         console.log("close");
@@ -145,27 +195,33 @@
             });
             kakao.maps.event.addListener(marker, "click", function () {
               const content = `<div class="wrap">
-              <div class="info">
-                <div class="title">
-                  ${element.csNm}
-                  <div
-                    class="close"
-                    onclick="closeOverlay()"
-                    title="닫기"
-                  ></div>
-                </div>
-                <div class="body">
-                  <div class="img">
-                    //완속이면 파란색으로 표시 급속이면 빨간색으로 표지
-                  </div>
-                  <div class="desc">
-                    <div class="ellipsis">${element.addr}</div>
-                    <div class="jibun ellipsis">${element.cpTp}</div>
-                    <div class="ellipsis">${element.cpStat}</div>
-                  </div>
-                </div>
-              </div>
-            </div>`;
+                    <div class="info">
+                      <div class="title">
+                        ${element.csNm}
+                        <div
+                          class="close"
+                          onclick="closeOverlay()"
+                          title="닫기"
+                        ></div>
+                      </div>
+                      <div class="body">
+                        <div class="img ${
+                          chargeTps[element.chargeTp - 1].color
+                        }">
+                          ${chargeTps[element.chargeTp - 1].title}
+                        </div>
+                        <div class="desc">
+                          <div class="ellipsis">${element.addr}</div>
+                          <div class="cpStat ellipsis">충전상태 : ${
+                            cpTps[element.cpTp]
+                          }</div>
+                          <div class="cpStat ellipsis">충전타입 : ${
+                            cpStats[element.cpStat]
+                          }</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
               //
 
               overlay.setContent(content);
