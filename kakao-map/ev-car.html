@@ -10,7 +10,7 @@
     ></script>
   </head>
   <body>
-    <div id="map" style="width: 100vw; height: 100vh"></div>
+    <div id="map" style="width: 80vw; height: 80vh"></div>
     <script>
       fetch(
         "https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList?page=1&perPage=100&serviceKey=Wnus4QpirWGI56CfvzMWDIDHMRL%2FmEF%2FqTl9gwVNbRggLYTGPFIdwBy0L51B%2B27d5QRbLanNmIAxPwNvl7dKPA%3D%3D"
@@ -25,7 +25,7 @@
           const mapContainer = document.querySelector("#map"), // 지도를 표시할 div
             mapOption = {
               center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-              level: 3, // 지도의 확대 레벨
+              level: 10, // 지도의 확대 레벨
             };
 
           const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
