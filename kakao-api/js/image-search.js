@@ -42,8 +42,6 @@ console.log(loadMyItem[0]);
 function showH2() {
   const h2 = document.querySelectorAll("h2");
   h2.forEach(function (element, index) {
-    //console.log(element);
-    //console.log(index);
     element.style.display = "block";
   });
 }
@@ -63,9 +61,6 @@ btnSearch.addEventListener("click", function () {
 function addSearchWord(searchWord) {
   if (!searchedWordArray.includes(searchWord)) {
     searchedWordArray.push(searchWord); //전지현 , 송혜교
-    searchedWordArray.forEach(function (element, index) {
-      searchedWordList.innerHTML += `<li>${element}</li>`;
-    });
     localStorage.setItem(
       "searchedWordArray",
       JSON.stringify(searchedWordArray)
