@@ -12,8 +12,13 @@
   <body>
     <div id="map" style="width: 80vw; height: 80vh"></div>
     <script>
+      let page = 1;
+      const perPage = 300;
+      const serviceKey =
+        "Wnus4QpirWGI56CfvzMWDIDHMRL%2FmEF%2FqTl9gwVNbRggLYTGPFIdwBy0L51B%2B27d5QRbLanNmIAxPwNvl7dKPA%3D%3D";
+      const region = "일산";
       fetch(
-        "https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList?page=1&perPage=100&serviceKey=Wnus4QpirWGI56CfvzMWDIDHMRL%2FmEF%2FqTl9gwVNbRggLYTGPFIdwBy0L51B%2B27d5QRbLanNmIAxPwNvl7dKPA%3D%3D"
+        `https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList?page=${page}&perPage=${perPage}&serviceKey=${serviceKey}&cond[addr::LIKE]=${region}`
       )
         .then(function (response) {
           return response.json();
