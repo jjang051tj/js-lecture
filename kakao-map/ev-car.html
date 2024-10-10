@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bfbedb713be7ff815a9fdc893bdac8f8&libraries=services"
+    ></script>
+  </head>
+  <body>
+    <div id="map" style="width: 100vw; height: 100vh"></div>
+    <script>
+      fetch(
+        "https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList?page=1&perPage=100&serviceKey=Wnus4QpirWGI56CfvzMWDIDHMRL%2FmEF%2FqTl9gwVNbRggLYTGPFIdwBy0L51B%2B27d5QRbLanNmIAxPwNvl7dKPA%3D%3D"
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          console.log(json.data);
+          const markers = [];
+          const stationList = [...json.data];
+          const mapContainer = document.querySelector("#map"), // 지도를 표시할 div
+            mapOption = {
+              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+              level: 3, // 지도의 확대 레벨
+            };
+
+          const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+          stationList.forEach(function (element, index, array) {
+            const marker = new kakao.maps.Marker({
+              position: new kakao.maps.LatLng(element.lat, element.longi),
+              title: element.csName,
+            });
+            marker.setMap(map);
+          });
+          //여기다가 지도 표시
+        });
+    </script>
+  </body>
+</html>
